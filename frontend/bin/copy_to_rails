@@ -1,0 +1,12 @@
+#!/bin/bash
+
+rootDir="$( dirname "$0" )/../.."
+
+(
+  cd "$rootDir/frontend" || exit
+  cp build/static/js/main*.js ../app/assets/javascripts/frontend.js
+  cp build/static/js/main*.js.map ../app/assets/javascripts/frontend.js.map
+  cp build/static/css/main*.css ../app/assets/stylesheets/frontend.css
+
+  echo 'Copied build to rails assets folder.'
+)

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ReactRails</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <% unless ENV['REACT_DEV'] %>
+      <%= stylesheet_link_tag 'frontend' %>
+    <% end %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+
+    <% if ENV['REACT_DEV'] %>
+      <%= javascript_include_tag 'http://localhost:3001/static/js/bundle.js' %>
+    <% else %>
+      <%= javascript_include_tag 'frontend' %>
+    <% end %>
+  </body>
+</html>
